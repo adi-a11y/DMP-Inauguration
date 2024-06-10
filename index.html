@@ -24,19 +24,8 @@
     
     <br />
     <div class="maindivcont">
-    <div class="eventdivleft ">
-           
-      <div class="eventcard1 hidden" id="create"> <div class="eventCreate" ><pre id="eventCreate"></pre></div>
-    </div>
-   
-      <div class="eventcard2 hidden" id="witness"> <div class="eventWitness" ><pre id="eventWitness"></pre></div>
-    </div>
-   
-      <div class="eventcard1 hidden" id="complete"> <div class="eventWitnessComplete"><pre id="eventWitnessComplete"></pre></div>
-    </div>
-  </div>
-  <div class="eventdivright">
-  <div class="card4"><div id="summary"></div></div>
+
+  <div class="eventdivleft">
     <div class="diyas-container">
 
  
@@ -127,6 +116,7 @@
     </div>
     <div class="messagesdiv">
       <div class="message" id="message1">
+        
       </div>
       <div class="message" id="message2">
       </div>
@@ -134,107 +124,26 @@
       </div>
      </div>
   </div>
+  <div class="eventdivright ">
+    <div class="cardcontaincord">
+         <div class="headercord">CORD Blockcain</div>  
+         <div class="cordevents">
+    <div class="eventcard1 " id="create"> <div class="eventCreate" ><pre id="eventCreate"></pre></div>
+  </div>
+ 
+    <div class="eventcard2 " id="witness"> <div class="eventWitness" ><pre id="eventWitness"></pre></div>
+  </div>
+ 
+    <div class="eventcard1 " id="complete"> <div class="eventWitnessComplete"><pre id="eventWitnessComplete"></pre></div>
+  </div>
+  <div class="card4"><div id="summary">
+  </div></div>
+</div>
+  </div>
+  <p class="powered">Powered By <span class="bol">&nbspDhiway</span></p>
+</div>
   </div>
 
-    </div>
-    <div class="completedscreen hide" id="completedscreen">
-      <div class="leftdivlampmsg">
-      <div class="diyas-container-complete">
-        <div class="container2">
-          <div class="diyacomplete">
-            <div class="diya__base base">
-              <div class="base__part base__part--bottom">
-                <div class="base__decoration base__decoration--left"></div>
-                <div class="base__decoration base__decoration--right"></div>
-              </div>
-              <div class="base__part base__part--top"></div>
-            </div>
-            <div class="diya__flame flame">
-              <div class="flame__shadow flame__shadow--big"></div>
-              <div class="flame__shadow flame__shadow--sm1"></div>
-              <div class="flame__shadow flame__shadow--sm2"></div>
-              <div class="flame__shadow flame__shadow--sm3"></div>
-              <div class="flame__fire flame__fire--outer2"></div>
-              <div class="flame__fire flame__fire--inner2"></div>
-            </div>
-            <div class="diya__shadow shadow">
-              <div class="shadow__flame"></div>
-              <div class="shadow__diya"></div>
-            </div>
-          </div>
-        </div>
-        <div class="containerlo containermiddle">
-          <div class="diyacomplete">
-            <div class="diya__base base">
-              <div class="base__part base__part--bottom">
-                <div class="base__decoration base__decoration--left"></div>
-                <div class="base__decoration base__decoration--right"></div>
-              </div>
-              <div class="base__part base__part--top"></div>
-            </div>
-            <div class="diya__flame flame" >
-              <div class="flame__shadow flame__shadow--big"></div>
-              <div class="flame__shadow flame__shadow--sm1"></div>
-              <div class="flame__shadow flame__shadow--sm2"></div>
-              <div class="flame__shadow flame__shadow--sm3"></div>
-              <div class="flame__fire flame__fire--outer"></div>
-              <div class="flame__fire flame__fire--inner"></div>
-            </div>
-            <div class="diya__shadow shadow">
-              <div class="shadow__flame"></div>
-              <div class="shadow__diya"></div>
-            </div>
-          </div>
-        </div>
-        <div class="container2">
-          <div class="diyacomplete">
-            <div class="diya__base base">
-              <div class="base__part base__part--bottom">
-                <div class="base__decoration base__decoration--left"></div>
-                <div class="base__decoration base__decoration--right"></div>
-              </div>
-              <div class="base__part base__part--top"></div>
-            </div>
-            <div class="diya__flame flame" >
-              <div class="flame__shadow flame__shadow--big"></div>
-              <div class="flame__shadow flame__shadow--sm1"></div>
-              <div class="flame__shadow flame__shadow--sm2"></div>
-              <div class="flame__shadow flame__shadow--sm3"></div>
-              <div class="flame__fire flame__fire--outer2"></div>
-              <div class="flame__fire flame__fire--inner2"></div>
-            </div>
-            <div class="diya__shadow shadow">
-              <div class="shadow__flame"></div>
-              <div class="shadow__diya"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-   
-     <div class="messagesdiv">
-     <div class="message">
-      <span class="quote">“</span> A character can be any letter, number, punctuation, special character, or space. Each of these characters takes up one byte of space in a computer’s memory.
-     </div>
-     <div class="message">
-      <span class="quote">“</span> A character can be any letter, number, punctuation, special character, or space. Each of these characters takes up one byte of space in a computer’s memory.
-     </div>
-     <div class="message">
-      <span class="quote">“</span> A character can be any letter, number, punctuation, special character, or space. Each of these characters takes up one byte of space in a computer’s memory.
-     </div>
-    </div>
-    </div>
-    <div class="rightdiv">
-      <div class="eventCreate">
-        <div class="card"></div>
-      </div>
-      <div class="eventWitness">
-        <div class="card"></div>
-      </div>
-      <div class="eventWitnessComplete">
-        <div class="card"></div>
-      </div>
-    </div>
     </div>
 
 
@@ -255,7 +164,7 @@
                 // Stringify the JSON object with indentation
                 const formattedJson = JSON.stringify(JSON.parse(previoussummary), null, 4);
                 // Update the HTML element with formatted JSON
-                document.getElementById("summary").innerHTML =`<pre>${formattedJson}</pre>`;
+                document.getElementById("summary").innerHTML =`<pre>Summary:\n\n${formattedJson}</pre>`;
               }
      
                const intervaldata  = setInterval(async () => {
@@ -272,7 +181,7 @@
                     let currentsummary = await eventSummary(identifier);
                     if (currentsummary !== previoussummary) {
                       const formattedJson = JSON.stringify(JSON.parse(currentsummary), null,4);
-                      document.getElementById("summary").innerHTML =`<pre>${formattedJson}</pre>`;
+                      document.getElementById("summary").innerHTML =`<pre>Summary:\n\n${formattedJson}</pre>`;
                         console.log('Inner text changed to:', currentsummary.currentWitnessCount);
                         previoussummary = currentsummary;
                     }
