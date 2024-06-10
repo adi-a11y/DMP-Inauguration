@@ -225,7 +225,7 @@
           witnessCount: 3,
         }
 
-        fetch("http://localhost:3002/api/v1/dmp/create", {
+        fetch("https://api.demo.dhiway.com/api/v1/dmp/create", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -277,7 +277,7 @@
           identifier: formDatamain.get("identifier"),
         }
 
-        fetch("http://localhost:3002/api/v1/dmp/sendMail", {
+        fetch("https://api.demo.dhiway.com/api/v1/dmp/sendMail", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
