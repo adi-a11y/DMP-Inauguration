@@ -7,10 +7,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <section>
+    <section class="hide" id="mainscreen">
       <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -57,6 +58,35 @@
         </div>
       </div>
     </section>
+    <div class="successscreen" id="successscreen">
+      <div class="container">
+        <div class="diya">
+          <div class="diya__base base">
+            <div class="base__part base__part--bottom">
+              <div class="base__decoration base__decoration--left"></div>
+              <div class="base__decoration base__decoration--right"></div>
+            </div>
+            <div class="base__part base__part--top"></div>
+          </div>
+          <div class="diya__flame flame"  id="flame2">
+            <div class="flame__shadow flame__shadow--big"></div>
+            <div class="flame__shadow flame__shadow--sm1"></div>
+            <div class="flame__shadow flame__shadow--sm2"></div>
+            <div class="flame__shadow flame__shadow--sm3"></div>
+            <div class="flame__fire flame__fire--outer"></div>
+            <div class="flame__fire flame__fire--inner"></div>
+          </div>
+          <div class="diya__shadow shadow">
+            <div class="shadow__flame"></div>
+            <div class="shadow__diya"></div>
+          </div>
+        </div>
+    </div>
+      <h2 class="headsuccess">Successful</h2>
+      <a href="https://dhiway.github.io/DMP-Inauguration/" target="_blank">
+        <h1 class="liveclick" id="watch">Watch the live inauguration screen ----></h1>
+    </a>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -113,7 +143,7 @@
         }
         console.log("here data sent",data);
 
-        fetch("https://api.demo.dhiway.com/api/v1/dmp/witness", {
+        fetch("http://localhost:3002/api/v1/dmp/witness", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -126,6 +156,12 @@
             //   throw new Error("Network response was not ok")
             // }
             alert("Inaugrated successfully!")
+            const mainscreen= document.getElementById("mainscreen");
+            const successscreen = document.getElementById("successscreen");
+            if (successscreen.classList.contains("hidden")) {
+              successscreen.classList.remove("hidden");
+              mainscreen.classList.add("hidden");
+              }
             // form.reset() // Reset the form after successful submission
           })
           .catch((error) => {

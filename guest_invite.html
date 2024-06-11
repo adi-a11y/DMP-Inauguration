@@ -7,6 +7,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="./style.css" />
     <style>
       .form-container {
@@ -225,7 +226,7 @@
           witnessCount: 3,
         }
 
-        fetch("https://api.demo.dhiway.com/api/v1/dmp/create", {
+        fetch("http://localhost:3002/api/v1/dmp/create", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -277,7 +278,7 @@
           identifier: formDatamain.get("identifier"),
         }
 
-        fetch("https://api.demo.dhiway.com/api/v1/dmp/sendMail", {
+        fetch("http://localhost:3002/api/v1/dmp/sendMail", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
