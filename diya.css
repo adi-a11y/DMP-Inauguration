@@ -520,6 +520,7 @@ pre{
   .eventHeading {
     font-size: 50px;
   }
+
   .containermiddle {
     height: calc(var(--unit) * 400);
     width: calc(var(--unit) * 400);
@@ -572,4 +573,9 @@ border-radius: 15px;
   gap: 5%;
   width: 100%;
   justify-content: center;
+}
+.eventHeading2 {
+  justify-content: center;
+  display: flex;
+  color: white !important;
 }

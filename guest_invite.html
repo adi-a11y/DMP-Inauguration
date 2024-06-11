@@ -170,7 +170,7 @@
                   <button
                     type="button"
                     class="gradient-button"
-                    id="inviteSubmit"
+                    id="inviteSend"
                     onclick="sendInvite()"
                   >
                     Send Invite
@@ -216,6 +216,7 @@
       }
 
       function createAdmin() {
+        document.getElementById("inviteSubmit").disabled = true;
         const form = document.getElementById("inviteForm")
         const formData = new FormData(form)
 
@@ -236,16 +237,19 @@
           .then((response) => {
             if(response.status === 200){
               alert("Event Created Successfully!")
+              document.getElementById("inviteSubmit").disabled = false;
             highlightinvite()
             console.log("Success:", data)
             }
           })
           .catch((error) => {
+            document.getElementById("inviteSubmit").disabled = false;
             console.error("Error:", error)
           })
       }
 
       function sendInvite() {
+        document.getElementById("inviteSend").disabled = true;
         const form = document.getElementById("inviteFormdata")
         const formData = new FormData(form)
         const formmain = document.getElementById("inviteForm")
@@ -290,9 +294,11 @@
               throw new Error("Network response was not ok")
             }
             alert("Invite sent successfully!")
+            document.getElementById("inviteSend").disabled = false;
             form.reset() // Reset the form after successful submission
           })
           .catch((error) => {
+            document.getElementById("inviteSend").disabled = false;
             console.error(
               "There was a problem with your fetch operation:",
               error

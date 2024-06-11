@@ -27,6 +27,9 @@
       <div class="inaugrationscreen" id="inaugrationscreen">
     
     <br />
+    <div class='hide' id="eventopen">
+    <h1 class="eventHeading2" > The Event is now Open</h1>
+  </div>
     <div class="maindivcont">
 
   <div class="eventdivleft">
@@ -175,6 +178,10 @@
                   console.log("herechecking",JSON.parse(previoussummary).currentWitnessCount);
                   if(previoussummary!=="null" && JSON.parse(previoussummary).currentWitnessCount === 3 ){
                     console.log("here");
+                    const eventopen = document.getElementById("eventopen");
+                  if (eventopen.classList.contains("hide")) {
+                    eventopen.classList.remove("hide");
+                    }
                     toggleDiva1();
                     toggleDiva2();
                     toggleDiva3();
@@ -229,6 +236,7 @@
                   const currentTextwitness = document.getElementById('eventWitness').innerText;
                   const arraywitness = JSON.parse(currentTextwitness);
                   const divwiteness = document.getElementById("complete");
+                  
                     if (divwiteness.classList.contains("hidden")) {
                       divwiteness.classList.remove("hidden");
                     }
