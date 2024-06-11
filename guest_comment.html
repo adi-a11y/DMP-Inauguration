@@ -45,6 +45,7 @@
                   <button
                     type="button"
                     class="gradient-button"
+                    id="submitbtn"
                     onclick="guestComment()"
                   >
                     Inaugurate the Event
@@ -83,9 +84,6 @@
         </div>
     </div>
       <h2 class="headsuccess">Successful</h2>
-      <a href="https://dhiway.github.io/DMP-Inauguration/" target="_blank">
-        <h1 class="liveclick" id="watch">Watch the live inauguration screen ----></h1>
-    </a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -94,6 +92,7 @@
     const textarea = document.getElementById('inaugurationComment');
     const charCountDiv = document.getElementById('charCount');
     const maxChars = 150;
+    let namedata;
     textarea.addEventListener('input', function() {
         const charCount = this.value.length;
         if (charCount > maxChars) {
@@ -108,6 +107,7 @@
             const name = params.get('name');
             const namediv = document.getElementById("nameid");
             namediv.innerText = name;
+            namedata = name;
         }
         window.onload = getQueryName;
 
@@ -123,10 +123,13 @@
       }
 
       function guestComment() {
+        document.getElementById("submitbtn").innerText = "Inaugurating";
+        document.getElementById("submitbtn").disabled = true;
         const hashParams = getHashParams()
         console.log(hashParams)
         const comment = document.getElementById("inaugurationComment").value
-
+        const hash1 = window.location.hash.substring(1)
+        const params2 = new URLSearchParams(hash1)
         console.log(comment)
         console.log("Email:", hashParams.email)
         console.log("Identifier:", hashParams.identifier)
@@ -134,12 +137,15 @@
         console.log("Name:", hashParams.name)
         console.log("Input Field:", comment)
         
-
+        let datacmnt = comment + " - " + params2.get("name");
+        if(comment===''){
+          datacmnt = params2.get("name") + "-"
+        }
         const data = {
           email: hashParams.email,
           identifier: hashParams.identifier,
           document_hash: hashParams.document_hash,
-          comment: comment,
+          comment: datacmnt,
         }
         console.log("here data sent",data);
 
@@ -151,11 +157,13 @@
           body: JSON.stringify(data),
         })
           .then((response) => {
+            document.getElementById("submitbtn").innerText = "Inaugurate the Event";
+            document.getElementById("submitbtn").disabled = false;
             console.log("here",response);
             // if (!response.ok) {
             //   throw new Error("Network response was not ok")
             // }
-            alert("Inaugrated successfully!")
+            // alert("Inaugrated successfully!")
             const mainscreen= document.getElementById("mainscreen");
             const successscreen = document.getElementById("successscreen");
             if (successscreen.classList.contains("hide")) {
@@ -165,6 +173,8 @@
             // form.reset() // Reset the form after successful submission
           })
           .catch((error) => {
+            document.getElementById("submitbtn").innerText = "Inaugurate the Event";
+            document.getElementById("submitbtn").disabled = false;
             console.error(
               "There was a problem with your fetch operation:",
               error
