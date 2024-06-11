@@ -208,7 +208,7 @@
 
                   if(array.length === 1){
                     const message1 = document.getElementById("message1");
-                    message1.innerHTML = `<span class="quote">“</span> ${array[0].comments}`
+                    message1.innerHTML = `<span class="quote">"</span> ${array[0].comments}<span class="quote">"</span>`
                     const divcreate = document.getElementById("create");
                     if (divcreate.classList.contains("hidden")) {
                       divcreate.classList.remove("hidden");
@@ -220,10 +220,10 @@
                     toggleDiva1();
                   } else if(array.length === 2){
                     const message1 = document.getElementById("message1");
-                    message1.innerHTML = `<span class="quote">“</span> ${array[0].comments}`
+                    message1.innerHTML = `<span class="quote">"</span> ${array[0].comments}<span class="quote">"</span>`
                     if(array[1].comments!==""){
                     const message2 = document.getElementById("message2");
-                    message2.innerHTML = `<span class="quote">“</span> ${array[1].comments}`
+                    message2.innerHTML = `<span class="quote">"</span> ${array[1].comments}<span class="quote">"</span>`
                     }
                     toggleDiva1();
                     toggleDiva2();
@@ -242,15 +242,15 @@
                     }
                     if(arraywitness[0].comments!=='' && arraywitness[0].comments){
                       const message1 = document.getElementById("message1");
-                    message1.innerHTML = `<span class="quote">“</span> ${arraywitness[0].comments}`
+                    message1.innerHTML = `<span class="quote">"</span> ${arraywitness[0].comments}<span class="quote">"</span>`
                     }
                     if(arraywitness[1].comments!=='' && arraywitness[1].comments){
                       const message2 = document.getElementById("message2");
-                    message2.innerHTML = `<span class="quote">“</span> ${arraywitness[1].comments}`
+                    message2.innerHTML = `<span class="quote">“</span> ${arraywitness[1].comments}<span class="quote">"</span>`
                     }
                     if(arraywitness[2].comments!=='' && arraywitness[2].comments){
                       const message3 = document.getElementById("message3");
-                    message3.innerHTML = `<span class="quote">“</span> ${arraywitness[2].comments}`
+                    message3.innerHTML = `<span class="quote">“</span> ${arraywitness[2].comments}<span class="quote">"</span>`
                     }
                   toggleDiva1();
                   toggleDiva2();
