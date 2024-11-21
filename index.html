@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="diya.css" />
-    <title>C4GT Inaugration</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>DMP Inaugration</title>
     <style>
       @font-face {
         font-family: "Samaan";
@@ -13,6 +14,8 @@
     </style>
   </head>
   <body>
+    <div class="headclss">
+    <img src="c4gtlogo.png" class="logoclass"/>
       <h1
         id="updateEventCreateDiv"
         style="font-family: 'Samaan'"
@@ -20,9 +23,13 @@
       >
         DMP Inauguration
       </h1>
+    </div>
       <div class="inaugrationscreen" id="inaugrationscreen">
     
     <br />
+    <div class='hide' id="eventopen">
+    <h1 class="eventHeading2" >DMP 2024 is now open!</h1>
+  </div>
     <div class="maindivcont">
 
   <div class="eventdivleft">
@@ -116,7 +123,6 @@
     </div>
     <div class="messagesdiv">
       <div class="message" id="message1">
-        
       </div>
       <div class="message" id="message2">
       </div>
@@ -126,7 +132,7 @@
   </div>
   <div class="eventdivright ">
     <div class="cardcontaincord">
-         <div class="headercord">CORD Blockcain</div>  
+         <div class="headercord">CORD Blockchain</div>  
          <div class="cordevents">
     <div class="eventcard1 " id="create"> <div class="eventCreate" ><pre id="eventCreate"></pre></div>
   </div>
@@ -155,7 +161,7 @@
         // Ensure Browserify has loaded the modules
         const submitIdentifier = window.submitIdentifier
         const eventManager = window.eventManager
-        const identifier  = "Final_Dmp_Dry_Run";
+        const identifier  = "C4GT DMP 2024 Inauguration";
         submitIdentifier(identifier);
         (async () => {
                 let previoussummary = await eventSummary(identifier);
@@ -172,6 +178,10 @@
                   console.log("herechecking",JSON.parse(previoussummary).currentWitnessCount);
                   if(previoussummary!=="null" && JSON.parse(previoussummary).currentWitnessCount === 3 ){
                     console.log("here");
+                    const eventopen = document.getElementById("eventopen");
+                  if (eventopen.classList.contains("hide")) {
+                    eventopen.classList.remove("hide");
+                    }
                     toggleDiva1();
                     toggleDiva2();
                     toggleDiva3();
@@ -198,7 +208,7 @@
 
                   if(array.length === 1){
                     const message1 = document.getElementById("message1");
-                    message1.innerHTML = `<span class="quote">“</span> ${array[0].comments}`
+                    message1.innerHTML = `<span class="quote">"</span> ${array[0].comments}<span class="quote">"</span>`
                     const divcreate = document.getElementById("create");
                     if (divcreate.classList.contains("hidden")) {
                       divcreate.classList.remove("hidden");
@@ -210,10 +220,10 @@
                     toggleDiva1();
                   } else if(array.length === 2){
                     const message1 = document.getElementById("message1");
-                    message1.innerHTML = `<span class="quote">“</span> ${array[0].comments}`
+                    message1.innerHTML = `<span class="quote">"</span> ${array[0].comments}<span class="quote">"</span>`
                     if(array[1].comments!==""){
                     const message2 = document.getElementById("message2");
-                    message2.innerHTML = `<span class="quote">“</span> ${array[1].comments}`
+                    message2.innerHTML = `<span class="quote">"</span> ${array[1].comments}<span class="quote">"</span>`
                     }
                     toggleDiva1();
                     toggleDiva2();
@@ -226,20 +236,21 @@
                   const currentTextwitness = document.getElementById('eventWitness').innerText;
                   const arraywitness = JSON.parse(currentTextwitness);
                   const divwiteness = document.getElementById("complete");
+                  
                     if (divwiteness.classList.contains("hidden")) {
                       divwiteness.classList.remove("hidden");
                     }
                     if(arraywitness[0].comments!=='' && arraywitness[0].comments){
                       const message1 = document.getElementById("message1");
-                    message1.innerHTML = `<span class="quote">“</span> ${arraywitness[0].comments}`
+                    message1.innerHTML = `<span class="quote">"</span> ${arraywitness[0].comments}<span class="quote">"</span>`
                     }
                     if(arraywitness[1].comments!=='' && arraywitness[1].comments){
                       const message2 = document.getElementById("message2");
-                    message2.innerHTML = `<span class="quote">“</span> ${arraywitness[1].comments}`
+                    message2.innerHTML = `<span class="quote">“</span> ${arraywitness[1].comments}<span class="quote">"</span>`
                     }
                     if(arraywitness[2].comments!=='' && arraywitness[2].comments){
                       const message3 = document.getElementById("message3");
-                    message3.innerHTML = `<span class="quote">“</span> ${arraywitness[2].comments}`
+                    message3.innerHTML = `<span class="quote">“</span> ${arraywitness[2].comments}<span class="quote">"</span>`
                     }
                   toggleDiva1();
                   toggleDiva2();

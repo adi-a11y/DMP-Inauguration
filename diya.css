@@ -420,16 +420,16 @@ img,
   position: relative;
 }
 .messagesdiv{
-  width: 80%;
+  width: 90%;
   display: flex;
   height: 100px;
   flex-direction: row;
   gap:20px;
   padding:0% 5%;
+  justify-content: space-between;
 }
 .message{
   color: white;
-  width: 33%;
 }
 .quote{
   color: white;
@@ -520,6 +520,7 @@ pre{
   .eventHeading {
     font-size: 50px;
   }
+
   .containermiddle {
     height: calc(var(--unit) * 400);
     width: calc(var(--unit) * 400);
@@ -559,4 +560,22 @@ border-radius: 15px;
 }
 .bol{
   font-weight: 800;
+}
+.logoclass{
+  display: block;
+  height: 12%;
+  width: 12%;
+}
+.headclss{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5%;
+  width: 100%;
+  justify-content: center;
+}
+.eventHeading2 {
+  justify-content: center;
+  display: flex;
+  color: white !important;
 }

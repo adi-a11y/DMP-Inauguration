@@ -7,10 +7,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <section>
+    <section class="" id="mainscreen">
       <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -44,6 +45,7 @@
                   <button
                     type="button"
                     class="gradient-button"
+                    id="submitbtn"
                     onclick="guestComment()"
                   >
                     Inaugurate the Event
@@ -57,6 +59,32 @@
         </div>
       </div>
     </section>
+    <div class="successscreen hide" id="successscreen">
+      <div class="container">
+        <div class="diya">
+          <div class="diya__base base">
+            <div class="base__part base__part--bottom">
+              <div class="base__decoration base__decoration--left"></div>
+              <div class="base__decoration base__decoration--right"></div>
+            </div>
+            <div class="base__part base__part--top"></div>
+          </div>
+          <div class="diya__flame flame"  id="flame2">
+            <div class="flame__shadow flame__shadow--big"></div>
+            <div class="flame__shadow flame__shadow--sm1"></div>
+            <div class="flame__shadow flame__shadow--sm2"></div>
+            <div class="flame__shadow flame__shadow--sm3"></div>
+            <div class="flame__fire flame__fire--outer"></div>
+            <div class="flame__fire flame__fire--inner"></div>
+          </div>
+          <div class="diya__shadow shadow">
+            <div class="shadow__flame"></div>
+            <div class="shadow__diya"></div>
+          </div>
+        </div>
+    </div>
+      <h2 class="headsuccess">Successful</h2>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -64,6 +92,7 @@
     const textarea = document.getElementById('inaugurationComment');
     const charCountDiv = document.getElementById('charCount');
     const maxChars = 150;
+    let namedata;
     textarea.addEventListener('input', function() {
         const charCount = this.value.length;
         if (charCount > maxChars) {
@@ -78,6 +107,7 @@
             const name = params.get('name');
             const namediv = document.getElementById("nameid");
             namediv.innerText = name;
+            namedata = name;
         }
         window.onload = getQueryName;
 
@@ -93,10 +123,13 @@
       }
 
       function guestComment() {
+        document.getElementById("submitbtn").innerText = "Inaugurating";
+        document.getElementById("submitbtn").disabled = true;
         const hashParams = getHashParams()
         console.log(hashParams)
         const comment = document.getElementById("inaugurationComment").value
-
+        const hash1 = window.location.hash.substring(1)
+        const params2 = new URLSearchParams(hash1)
         console.log(comment)
         console.log("Email:", hashParams.email)
         console.log("Identifier:", hashParams.identifier)
@@ -104,12 +137,15 @@
         console.log("Name:", hashParams.name)
         console.log("Input Field:", comment)
         
-
+        let datacmnt = comment + " - " + params2.get("name");
+        if(comment===''){
+          datacmnt = params2.get("name") + "-"
+        }
         const data = {
           email: hashParams.email,
           identifier: hashParams.identifier,
           document_hash: hashParams.document_hash,
-          comment: comment,
+          comment: datacmnt,
         }
         console.log("here data sent",data);
 
@@ -121,14 +157,24 @@
           body: JSON.stringify(data),
         })
           .then((response) => {
+            document.getElementById("submitbtn").innerText = "Inaugurate the Event";
+            document.getElementById("submitbtn").disabled = false;
             console.log("here",response);
             // if (!response.ok) {
             //   throw new Error("Network response was not ok")
             // }
-            alert("Inaugrated successfully!")
+            // alert("Inaugrated successfully!")
+            const mainscreen= document.getElementById("mainscreen");
+            const successscreen = document.getElementById("successscreen");
+            if (successscreen.classList.contains("hide")) {
+              successscreen.classList.remove("hide");
+              mainscreen.classList.add("hide");
+              }
             // form.reset() // Reset the form after successful submission
           })
           .catch((error) => {
+            document.getElementById("submitbtn").innerText = "Inaugurate the Event";
+            document.getElementById("submitbtn").disabled = false;
             console.error(
               "There was a problem with your fetch operation:",
               error
